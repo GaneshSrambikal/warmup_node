@@ -33,9 +33,8 @@ readerStream.on('end', function () {
     console.log(data);
 
 });
-
-
 console.log("Program Ended");
+
 /**streams emits following events
  * data - this event fires when there is data available to read
  * end - this event fires when there is end of data to read
@@ -44,16 +43,17 @@ console.log("Program Ended");
  */
 
 //Write to a Stream
-
-//let fs = require('fs');
-// data ='hi there, this output test';
+let fs = require('fs');
+data ='hi there, this output test';
 //create a write stream
 let writeStream = fs.createWriteStream('output.txt');
 
 //write to file
 writeStream.write(data, 'utf8');
+
 //set end of file
 writeStream.end();
+
 //handle events 
 writeStream.on('finish', function () {
     console.log("done writing.");
@@ -63,5 +63,53 @@ writeStream.on('error', function (err) {
 });
 
 console.log("Program Ended.");
+
+/**Piping the Streams
+ * the machanism here is to provide the output of a stream to another stream
+ * as an input.
+ * There is no limit to piping operations.
+ */
+
+ //Example
+ let fs = require('fs');
+ 
+ //create a readable stream
+ let readStream = fs.createReadStream('input.txt');
+
+ //create a writeable stream
+ let writeStream = fs.createWriteStream('output.txt');
+
+ //pipe the read and write stream
+ readStream.pipe(writeStream)
+ console.log("piped");
+
+ /** Chaining the Stream 
+  * The machansim here is to connect one stream to another stream
+  * and forming a chain of multiple stream operations.
+  * mostly used with piping
+ */
+
+ //example 
+ let fs = require('fs');
+ let zlib = require('zlib');
+
+ fs.createReadStream('input.txt')
+ .pipe(zlib.createGzip())
+ .pipe(fs.createWriteStream('input.txt.gz'));
+
+ console.log("File compressed");
+ /** the above code will zip the file called input.txt
+  * to input.txt.gz using zlib */
+
+fs.createReadStream('input.txt.gz')
+.pipe(zlib.createGunzip())
+.pipe(fs.createWriteStream('input.txt'));
+
+console.log("file decompressed");
+
+/**the above code decpompress the file */
+
+
+
 
 
