@@ -27,15 +27,41 @@ readerStream.on('error', function (err) {
 });
 readerStream.on('data', function (chunk) {
     data += chunk;
-    if(!readerStream.eof){console.log("end of file")}
+    if (!readerStream.eof) { console.log("end of file") }
 });
 readerStream.on('end', function () {
     console.log(data);
-    
+
 });
 
 
 console.log("Program Ended");
 /**streams emits following events
- * data - this 
+ * data - this event fires when there is data available to read
+ * end - this event fires when there is end of data to read
+ * error - this event fires when there an error during read and write operation.
+ * 
  */
+
+//Write to a Stream
+
+//let fs = require('fs');
+// data ='hi there, this output test';
+//create a write stream
+let writeStream = fs.createWriteStream('output.txt');
+
+//write to file
+writeStream.write(data, 'utf8');
+//set end of file
+writeStream.end();
+//handle events 
+writeStream.on('finish', function () {
+    console.log("done writing.");
+});
+writeStream.on('error', function (err) {
+    console.log(err.stack);
+});
+
+console.log("Program Ended.");
+
+
