@@ -15,4 +15,14 @@ fs.open('input.txt', 'r+', function (err, fd) {
     else {
         console.log("file opened to read.");
     }
-})
+});
+
+// Some of the flags 
+/**
+ * r - open file for reading. An exception occurs if the file does not exist.
+ * r+ -open file for reading and writing. An exception occurs if the file does not exist.
+ * w -open file for writing. The file is created if it doesnt exist or truncated if it exists.
+ * w+ -open file for  reading and writing. The file is created if it doesnt exist or truncated if it exists.
+ * a - oopen a file for append. file is created if doesnt exists.
+ * a+ open a file for read and append. file is created if doesnt exists.
+ */
