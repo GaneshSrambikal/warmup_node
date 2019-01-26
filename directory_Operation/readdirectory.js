@@ -3,7 +3,7 @@
 
 let fs  =require('fs');
 
-fs.readdir('C:/Users/Gnshsrmbkl/Desktop/warmup_node/',function(err,files){
+fs.readdir('/warmup_node/',function(err,files){
     if (err) {
         console.log(err.stack);
     } else {

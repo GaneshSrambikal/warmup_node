@@ -3,7 +3,7 @@
 
 let fs = require('fs');
 
-fs.rmdir('C:/Users/Gnshsrmbkl/Desktop/warmup_node/directory_Operation/test', function (err) {
+fs.rmdir('/warmup_node/directory_Operation/test', function (err) {
     if (err) {
         console.log(err.stack)
     } else {
