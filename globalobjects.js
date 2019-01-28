@@ -9,20 +9,20 @@
  */
 
 //example
-// console.log(__filename);
-// // this will log the entire file path includeing directory
+console.log(__filename);
+// this will log the entire file path includeing directory
 
-// // to log only the file name do this.
-// let path = __filename;
+// to log only the file name do this.
+let path = __filename;
 
-// let filename =path.split(/(\\|\/)/g).pop();//pops out the last element in the array which is the filename.
-// console.log("Filename: "+filename);
+let filename =path.split(/(\\|\/)/g).pop();//pops out the last element in the array which is the filename.
+console.log("Filename: "+filename);
 
-// /**__dirname
-//  * this global object returns the current directory
-//  */
-// //__dirname
-// console.log(__dirname);
+/**__dirname
+ * this global object returns the current directory
+ */
+//__dirname
+console.log(__dirname);
 
 
 /**Global time functions
