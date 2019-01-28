@@ -4,7 +4,7 @@
  * let path = require('path');
  */
 
-let path = require('path');
+// let path = require('path');
 
 //path.normalize - normalizes the paths(for ex. '//','..')
 // console.log(path.normalize("Desktop\\warmup_node\\buffers.js"));
