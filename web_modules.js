@@ -6,6 +6,7 @@
  * which retrieves data from the database and performs complex logic and then
  * send it to http client through web server.
  * 
+ * 
  * web application archictecture consists of 4 layers-
  * A web archictecture consist of :-
  * Client - its basically the browsers or applications from different devices

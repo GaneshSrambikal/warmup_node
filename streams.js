@@ -45,6 +45,7 @@ console.log("Program Ended");
 //Write to a Stream
 let fs = require('fs');
 data ='hi there, this output test';
+
 //create a write stream
 let writeStream = fs.createWriteStream('output.txt');
 
